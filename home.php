@@ -16,12 +16,19 @@
 				include_once('components/side.php');
 			?>
 
+			<div class="col 
+	
+			s9">
+
+			</div>
+
 		</div>
 		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript">
 			$(document).ready(function(){
 				$('.sidenav').sidenav();
+				$('.collapsible').collapsible();
 			});
         </script>
 	</body>

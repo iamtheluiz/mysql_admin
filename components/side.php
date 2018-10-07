@@ -22,11 +22,16 @@
 		</div>
 	</a>
 	<div class="col s12">
-		<ul class="collection with-header">
-			<li class="collection-header"><i class="material-icons">storage</i>Banco de Dados</li>
+		<ul class="collapsible">
 			<?php
 				$admin->listar_databases();
 			?>
 		</ul>
+		<!-- <ul class="collection with-header">
+			<li class="collection-header"><i class="material-icons">storage</i>Banco de Dados</li>
+			<?php
+				//$admin->listar_databases();
+			?>
+		</ul> -->
 	</div>
 </div>

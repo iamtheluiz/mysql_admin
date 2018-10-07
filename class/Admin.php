@@ -19,8 +19,6 @@ class Admin extends Util{
 		try{
 			$pdo = new PDO("mysql:host=$host;dbname=$db_name;port=$port",$user,$pass);
 
-			$this->setPdo($pdo);
-
 			@session_start();
 
 			$_SESSION['logged'] = true;
@@ -30,6 +28,8 @@ class Admin extends Util{
 			$_SESSION['user'] = $user;
 			$_SESSION['pass'] = $pass;
 
+			return $pdo;
+
 		}catch (PDOException $e){
 			echo "Erro ao conectar com o MySQL: ".$e->getMessage();
 			exit;
@@ -37,14 +37,45 @@ class Admin extends Util{
 	}
 	public function listar_databases(){
 
+		//Bancos de dados padrão do mysql
+		$bancos_padrao = ['information_schema','mysql','performance_schema'];
+
+		//Pega a conexão
 		$pdo = $this->getPdo();
+
+		//Comando SQL que exibe os bancos
 		$sql = "SHOW DATABASES";
 		$query = $pdo->prepare($sql);
 		$query->execute();
 
 		while($row = $query->fetch(PDO::FETCH_OBJ)){
 
-			echo "<a href='#' class='collection-item'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</a>";
+			//Caso o banco seja um dos bancos padrões, sai do código
+			if(in_array($row->Database,$bancos_padrao)){
+				goto sair;
+			}
+
+			echo "<li>";
+			echo "<div class='collapsible-header'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</div>";
+			echo "<div class='collapsible-body'>";
+
+			//Faz a consulta das tabelas
+			$pdo_o = $this->db_connect($_SESSION['host'], $row->Database, $_SESSION['port'], $_SESSION['user'], $_SESSION['pass']);
+
+			$sql_t = "SHOW TABLES";
+			$query_t = $pdo_o->prepare($sql_t);
+			$query_t->execute();
+
+			while($row_t = $query_t->fetch(PDO::FETCH_ASSOC)){
+			    echo "<a href='#' class='collection-item'><i class='material-icons'>arrow_right</i>".$row_t["Tables_in_$row->Database"]."</a><br>";
+			}
+
+			echo "</div>";
+			echo "</li>";
+
+			//echo "<a href='#' class='collection-item'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</a>";
+
+			sair:
 
 		}
 

@@ -1,9 +1,14 @@
 .side{
-	height: calc(100vh - 56px);
-	max-height: 100vh;
+	height: auto !important;
 }
 @media only screen and (min-width: 601px){
 	.side{
 		height: calc(100vh - 64px) !important;
 	}
+}
+.side a{
+	color:black !important;
+}
+.side .collapsible{
+	background-color: white !important;
 }

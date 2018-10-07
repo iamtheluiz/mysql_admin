@@ -1,7 +1,9 @@
 <meta charset="utf-8">
 <?php
 
-	include('class/Admin.php');
+	$root = $_SERVER['DOCUMENT_ROOT'];
+
+	include($root.'/class/Admin.php');
 
 	$admin = new Admin;
 

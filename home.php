@@ -10,16 +10,18 @@
 		<title>Login | Mysql Admin</title>
 	</head>
 	<body>
-		<div class="content row">
-
+		<div class="row">
+			
+			<!-- Menu lateral -->
 			<?php
 				include_once('components/side.php');
 			?>
 
-			<div class="col 
-	
-			s9">
-
+			<!-- Corpo -->
+			<div id="corpo" class="col s9">
+				<?php 
+					include_once('components/corpo_padrao.php');
+				?>
 			</div>
 
 		</div>

@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
 	<div class="nav-wrapper blue darken-4">
 	<a href="#!" class="brand-logo">Logo</a>
 	<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -14,7 +14,7 @@
 		</div>
 	</a>
 </div>
-
+ -->
 <div id="mobile-demo" class="side z-depth-3 col s3 white hide-on-med-and-down">
 	<a href="home.php">
 		<div class="col s12 center-align">
@@ -27,11 +27,5 @@
 				$admin->listar_databases();
 			?>
 		</ul>
-		<!-- <ul class="collection with-header">
-			<li class="collection-header"><i class="material-icons">storage</i>Banco de Dados</li>
-			<?php
-				//$admin->listar_databases();
-			?>
-		</ul> -->
 	</div>
 </div>

@@ -56,7 +56,7 @@ class Admin extends Util{
 			}
 
 			echo "<li>";
-			echo "<div class='collapsible-header'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</div>";
+			echo "<div class='collapsible-header' onclick='vizualizar_database($row->Database)'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</div>";
 			echo "<div class='collapsible-body'>";
 
 			//Faz a consulta das tabelas
@@ -77,6 +77,26 @@ class Admin extends Util{
 
 			sair:
 
+		}
+
+	}
+	public function create_database($nm_database){
+
+		//Define a conexão
+		$pdo = $this->getPdo();
+
+		//Executa a consulta
+		$sql = "CREATE DATABASE $nm_database";
+		$query = $pdo->query($sql);
+		$query->execute();
+
+		//Verifica se o comando foi executado
+		if($query->rowCount() > 0){
+
+			header("Location: ../vizualizar_database.php?nm_database=$nm_database");
+
+		}else{
+			$this->redirect("Não foi possível criar seu banco de dados!","../home.php");
 		}
 
 	}

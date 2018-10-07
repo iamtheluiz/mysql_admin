@@ -4,6 +4,7 @@
 	$root = $_SERVER['DOCUMENT_ROOT'];
 
 	include($root.'/class/Admin.php');
+	include($root.'/class/Banco.php');
 
 	$admin = new Admin;
 

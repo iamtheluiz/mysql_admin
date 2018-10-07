@@ -12,6 +12,9 @@ html{
 }
 .side{
 	height: 100vh !important;
+	position: fixed;
+	overflow: hidden;
+	overflow-y: auto;
 }
 .side a{
 	color:black !important;
@@ -21,6 +24,7 @@ html{
 }
 #corpo{
 	padding:5px !important;
+	position: fixed;
 }
 #corpo .item{
 	margin-bottom:10px;

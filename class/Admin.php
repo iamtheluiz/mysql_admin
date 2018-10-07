@@ -15,26 +15,6 @@ class Admin extends Util{
 
 	}
 
-	public function db_connect($host,$db_name,$port,$user,$pass){
-		try{
-			$pdo = new PDO("mysql:host=$host;dbname=$db_name;port=$port",$user,$pass);
-
-			@session_start();
-
-			$_SESSION['logged'] = true;
-			$_SESSION['host'] = $host;
-			$_SESSION['db_name'] = $db_name;
-			$_SESSION['port'] = $port;
-			$_SESSION['user'] = $user;
-			$_SESSION['pass'] = $pass;
-
-			return $pdo;
-
-		}catch (PDOException $e){
-			echo "Erro ao conectar com o MySQL: ".$e->getMessage();
-			exit;
-		}
-	}
 	public function listar_databases(){
 
 		//Bancos de dados padrão do mysql
@@ -56,7 +36,7 @@ class Admin extends Util{
 			}
 
 			echo "<li>";
-			echo "<div class='collapsible-header' onclick='vizualizar_database($row->Database)'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</div>";
+			echo "<div class='collapsible-header' onclick='vizualizar_database(".'"'.$row->Database.'"'.")'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</div>";
 			echo "<div class='collapsible-body'>";
 
 			//Faz a consulta das tabelas
@@ -102,11 +82,6 @@ class Admin extends Util{
 	}
 
 	/* Métodos Especiais */
-	public function setPdo($pdo){
-		$this->pdo = $pdo;
-	}
-	public function getPdo(){
-		return $this->pdo;
-	}
+	
 
 }

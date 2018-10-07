@@ -18,13 +18,14 @@
 			?>
 
 			<!-- Corpo -->
-			<div id="corpo" class="col s9">
+			<div id="corpo" class="col s9 offset-s3">
 				<?php 
 					include_once('components/corpo_padrao.php');
 				?>
 			</div>
 
 		</div>
+		<!-- Frameworks -->
 		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript">
@@ -33,5 +34,8 @@
 				$('.collapsible').collapsible();
 			});
         </script>
+
+        <!-- Funções Personalizadas -->
+        <script type="text/javascript" src="js/vizualizar_database.js"></script>
 	</body>
 </html>

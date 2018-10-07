@@ -35,6 +35,20 @@ class Admin extends Util{
 			exit;
 		}
 	}
+	public function listar_databases(){
+
+		$pdo = $this->getPdo();
+		$sql = "SHOW DATABASES";
+		$query = $pdo->prepare($sql);
+		$query->execute();
+
+		while($row = $query->fetch(PDO::FETCH_OBJ)){
+
+			echo "<a href='#' class='collection-item'><i class='material-icons'>subdirectory_arrow_right</i>$row->Database</a>";
+
+		}
+
+	}
 
 	/* Métodos Especiais */
 	public function setPdo($pdo){

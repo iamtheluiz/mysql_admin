@@ -15,7 +15,7 @@
 	</a>
 </div>
  -->
-<div id="mobile-demo" class="side z-depth-3 col s3 white hide-on-med-and-down">
+<div id="mobile-demo" class="side z-depth-3 col s3 white">
 	<a href="home.php">
 		<div class="col s12 center-align">
 			<h4>MySql Admin</h4>

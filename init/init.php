@@ -3,6 +3,9 @@
 
 	$root = $_SERVER['DOCUMENT_ROOT'];
 
+	$root = explode('/root',$root);
+	$root = $root[0].'/mysql_admin/';
+
 	include($root.'/class/Admin.php');
 	include($root.'/class/Banco.php');
 

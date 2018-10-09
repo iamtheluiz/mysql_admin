@@ -12,6 +12,15 @@ class Util{
 	public function __construct(){
 
 	}
+	public function actions_database(){
+
+		echo "<div id='action_bar' class='z-depth-1 blue lighten-1'>";
+
+			echo "<a href='#'>SQL</a>";
+
+		echo "</div>";
+
+	}
 	public function db_connect($host,$db_name,$port,$user,$pass){
 		try{
 			$pdo = new PDO("mysql:host=$host;dbname=$db_name;port=$port",$user,$pass);

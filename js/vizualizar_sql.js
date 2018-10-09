@@ -2,7 +2,7 @@
 	Função que recarrega o corpo da página após um banco de dados ser selecionado
 	para vizualização
 */
-function vizualizar_database(nm_database){
+function vizualizar_sql(){
 
 	//Procura o corpo da página
 	var corpo = document.getElementById("corpo");
@@ -12,7 +12,7 @@ function vizualizar_database(nm_database){
 
 	//Coloca o novo conteúdo
 	jQuery.ajax({
-		url: "ajax/vizualizar_database.php?nm_database="+nm_database,
+		url: "ajax/vizualizar_sql.php",
 		dataType: "html",
 		 
 		success: function(response){

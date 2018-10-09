@@ -12,17 +12,30 @@
 
 		}
 
+		public function actions_database(){
+
+			$pdo = $this->getPdo();
+
+			echo "<div id='action_bar' class='z-depth-1 blue lighten-1'>";
+
+				echo "<a href='#'>SQL</a>";
+				echo "<a href='#'>Estrutura</a>";
+				echo "<a href='#'>Estrutura</a>";
+
+			echo "</div>";
+
+		}
+
 		public function vizualizar_database($nm_database){
 
-			$pdo = $this->db_connect($_SESSION['host'],$nm_database,$_SESSION['port'],$_SESSION['user'],$_SESSION['pass']);
-			$this->setPdo($pdo);
+			$pdo = $this->getPdo();
 
 	        $sql_t = "SHOW TABLES";
 	        $query_t = $pdo->prepare($sql_t);
 	        $query_t->execute();
 
 	        echo "<table>
-				<thead>
+				<thead class='blue lighten-1 white-text'>
 				<tr>
 				<th>Nome</th>
 				<th>Item Name</th>

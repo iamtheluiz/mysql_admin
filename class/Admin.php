@@ -73,7 +73,8 @@ class Admin extends Util{
 		//Verifica se o comando foi executado
 		if($query->rowCount() > 0){
 
-			header("Location: ../vizualizar_database.php?nm_database=$nm_database");
+			//header("Location: ../vizualizar_database.php?nm_database=$nm_database");
+			header("Location: ../home.php");
 
 		}else{
 			$this->redirect("Não foi possível criar seu banco de dados!","../home.php");

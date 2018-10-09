@@ -15,9 +15,9 @@
 	</a>
 </div>
  -->
-<div id="mobile-demo" class="side z-depth-3 col s3 white">
+<div id="mobile-demo" class="side z-depth-1 col s3 blue">
 	<a href="home.php">
-		<div class="col s12 center-align">
+		<div class="col s12 center-align white-text">
 			<h4>MySql Admin</h4>
 		</div>
 	</a>
